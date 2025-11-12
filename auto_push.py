@@ -37,7 +37,8 @@ def fetch_gpt_code():
 def git_push(file):
     # This assumes your repo is already checked out
     GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
-    REPO = "github.com/username/repo.git"  # replace with your repo
+    # replace with your repo
+    REPO = "github.com/Vaibhav150123045/github-auto-commit-service.git"
 
     # Configure git
     subprocess.run(["git", "config", "--global",
