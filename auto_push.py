@@ -3,6 +3,12 @@ from openai import OpenAI
 import git
 from dotenv import load_dotenv
 import datetime
+import subprocess
+
+
+# Push using token authentication
+subprocess.run(
+    ["git", "push", f"https://x-access-token:{GITHUB_TOKEN}@{REPO}", "main"])
 
 # Load environment variables
 load_dotenv()
@@ -34,11 +40,24 @@ def fetch_gpt_code():
 
 
 def git_push(file):
-    repo = git.Repo(REPO_PATH)
-    repo.git.add(file)
-    repo.index.commit(f"Auto commit {file}")
-    origin = repo.remote(name="origin")
-    origin.push()
+    # This assumes your repo is already checked out
+    GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
+    REPO = "github.com/username/repo.git"  # replace with your repo
+
+    # Configure git
+    subprocess.run(["git", "config", "--global",
+                   "user.name", "github-actions"])
+    subprocess.run(["git", "config", "--global",
+                   "user.email", "github-actions@github.com"])
+
+    # Commit changes
+    subprocess.run(["git", "add", "."])
+    subprocess.run(
+        ["git", "commit", "-m", "Auto commit by GitHub Action"], check=False)
+
+    # Push using token authentication
+    subprocess.run(
+        ["git", "push", f"https://x-access-token:{GITHUB_TOKEN}@{REPO}", "main"])
 
 
 if __name__ == "__main__":
