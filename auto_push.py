@@ -5,11 +5,6 @@ from dotenv import load_dotenv
 import datetime
 import subprocess
 
-
-# Push using token authentication
-subprocess.run(
-    ["git", "push", f"https://x-access-token:{GITHUB_TOKEN}@{REPO}", "main"])
-
 # Load environment variables
 load_dotenv()
 
