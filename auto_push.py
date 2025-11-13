@@ -36,7 +36,12 @@ def fetch_gpt_code():
 
 def git_push(file):
     # This assumes your repo is already checked out
+    if not os.getenv("GITHUB_TOKEN"):
+        print("❌ GITHUB_TOKEN not found")
+    else:
+        print("✅ GITHUB_TOKEN is available")
     GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
+
     # replace with your repo
     REPO = "github.com/Vaibhav150123045/github-auto-commit-service.git"
 
