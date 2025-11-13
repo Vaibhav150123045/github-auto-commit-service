@@ -7,6 +7,9 @@ on:
     - cron: "0 17 * * *" # Still runs daily at 5 PM UTC
   workflow_dispatch: # Manual trigger from GitHub UI
 
+permissions:
+  contents: write # ✅ Required for GITHUB_TOKEN to push commits
+
 jobs:
   build:
     runs-on: ubuntu-latest
