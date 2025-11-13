@@ -48,9 +48,9 @@ def git_push(file):
 
     # Configure git
     subprocess.run(["git", "config", "--global",
-                   "user.name", "github-actions"])
+                   "user.name", "Vaibhav Motwani"])
     subprocess.run(["git", "config", "--global",
-                   "user.email", "github-actions@github.com"])
+                   "user.email", "motwani777@gmail.com"])
 
     # Commit changes
     subprocess.run(["git", "add", "."])
