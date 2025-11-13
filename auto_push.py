@@ -41,6 +41,7 @@ def git_push(file):
     else:
         print("✅ GITHUB_TOKEN is available")
     GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
+    print(GITHUB_TOKEN)
 
     # replace with your repo
     REPO = "github.com/Vaibhav150123045/github-auto-commit-service.git"
