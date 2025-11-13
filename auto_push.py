@@ -1,16 +1,16 @@
 import os
 from openai import OpenAI
-import git
 from dotenv import load_dotenv
 import datetime
 import subprocess
+import constants
 
 # Load environment variables
 load_dotenv()
 
 # Initialize OpenAI client
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-REPO_PATH = os.getenv("REPO_PATH")
+REPO_PATH = constants.REPO_PATH
 
 
 def fetch_gpt_code():
