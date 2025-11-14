@@ -24,3 +24,5 @@ except APIError as e:
     print(f"🚨 API Error: {e}")
 except Exception as e:
     print(f"Unexpected error: {e}")
+
+print("hello world")
